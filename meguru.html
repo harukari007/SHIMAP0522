@@ -8,28 +8,7 @@
     <script src="https://kit.fontawesome.com/17c882a708.js" crossorigin="anonymous"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
     <title>しまっぷ 島検索</title>
-    <style>
-        html,
-        body {
-            height: 100%;
-        }
-
-        body {
-            padding: 0;
-            margin: 0;
-        }
-
-        h1 {
-            padding: 0;
-            margin: 0;
-            font-size: 50%;
-        }
-
-        div {
-            float: left;
-        }
-    </style>
-        <link rel="stylesheet" href="css/style.css"> <!-- 外部CSSファイルをリンク -->
+        <link rel="stylesheet" href="css/meguru.css"> <!-- 外部CSSファイルをリンク -->
         <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script> <!-- jQueryを読み込む -->
 </head>
 
@@ -40,14 +19,14 @@
         <script>header('../');</script>
     </div>
     <!-- MAP[START] -->
-    <div id="myMap" style='width:60%;height:70%;float:left;'></div>
+    <div id="myMap" style='width:60%; height:70%; float:left;'></div>
     <!-- MAP[END] -->
 
 
     <!--Directions[START]-->
     <div>
-        From:<input type="text" id="from" value="御茶ノ水">
-        To:<input id="to" value="表参道">
+        From:<input type="text" id="from" value="天神">
+        To:<input id="to" value="博多">
         <select id="mode">
             <option value="walking">walking</option>
             <option value="driving">driving</option>
@@ -79,7 +58,7 @@
             //   startMap(lat, lon, "MapType", Zoom[1~20]);
             //   MapType:[load, aerial,canvasDark,canvasLight,birdseye,grayscale,streetside]
             //--------------------------------------------------
-            map.startMap(35.665100, 139.712000, "load", 15);
+            map.startMap(33.586825151018346, 130.39450118204064, "load", 15);
 
             //------------------------------------------------------------------------
             //3. Directions
@@ -94,7 +73,7 @@
                 const to = document.getElementById("to").value;    //EndPoint
                 const mode = document.getElementById("mode").value;  //RouteMode[walking,driving]
                 //経由地あり
-                const array = ["新宿", "恵比寿"];                       //Waypoints...
+                const array = ["天神", "博多"];                       //Waypoints...
                 map.direction("#direction", mode, from, to, array);  //Direction Methed
 
                 //経由地なし
