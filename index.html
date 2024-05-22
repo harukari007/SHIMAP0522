@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Voyage Vista</title>
+    <!-- CSSファイルをリンク -->
+    <link rel="stylesheet" href="css/home.css">
+    <!-- Font Awesomeをリンク -->
+    <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+</head>
+
+<body class="font-roboto">
+    <header class="flex justify-between items-center flex-direction p-4 bg-white shadow-md">
+        
+        <div class="shimap_logo">
+            <div class="font-bold text-xl">SHIMAP</div>
+            <img src="images/shimap_logo2.jpg" width="110" height="auto" alt="しまっぷ" class="logomain">
+        </div>
+
+        <nav class="space-x-6">
+            <a href="index.html" class="text-gray-500">ホーム</a>
+            <a href="search.html" class="text-gray-500">さがす</a>
+            <a href="#" class="text-gray-500">めぐる</a>
+            <a href="#" class="text-gray-500">お気に入り</a>
+            <a href="#" class="text-gray-500">マイページ</a>
+        </nav>
+        <div class="flex items-center space-x-4">
+            <i class="fas fa-user text-gray-500"></i>
+        </div>
+    </header>
+    <main>
+        <section class="relative bg-cover bg-center h-500" style="background-image: url('images/しまっぷ.png');">
+            <div class="overlay flex flex-col justify-center items-center">
+                <h1 class="text-white text-4xl font-bold text-center">島によりそい、心おどる冒険の旅へ</h1>
+                <p class="text-white text-center mt-2">次の冒険に向けた島を見つけましょう</p>
+                <div class="mt-4 flex">
+                    <input type="text" name="search" class="p-2 w-300 rounded-l-md" placeholder="行き先は？">
+                    <button class="bg-blue-500 text-white p-2 rounded-r-md searchAreaButton">検索</button>
+                </div>
+            </div>
+        </section>
+        <!-- お気に入り登録用 -->
+        <script src="okiniiri/okiniiri.js"></script>
+        <section class="p-8">
+            <h2 class="text-2xl font-bold mb-4">シーンからさがす</h2>
+            <div class="flex space-x-4 overflow-x-auto">
+                <!-- お得情報カード -->
+                <div class="deal-card">
+                    <img src="images/ship1.png" alt="長期休暇" class="deal-img">
+                    <div class="deal-info">
+                        <div class="font-semibold">島で長期休暇</div>
+                        <div class="text-gray-500 text-sm">7,000円から</div>
+                        <button class="btn-view">すべて表示</button>
+                        <button class="add" onclick="addfav('1')">お気に入りに登録</button>
+                        <button class="remove" onclick="removefav('1')">お気に入りから外す</button>
+                    </div>
+                </div>
+                <div class="deal-card">
+                    <img src="images/yoga.png" alt="ワーケーション" class="deal-img">
+                    <div class="deal-info">
+                        <div class="font-semibold">ワーケーション</div>
+                        <div class="text-gray-500 text-sm">10,000円から</div>
+                        <button class="btn-view">すべて表示</button>
+                    </div>
+                </div>
+                <div class="deal-card">
+                    <img src="images/music fes.png" alt="音楽フェス" class="deal-img">
+                    <div class="deal-info">
+                        <div class="font-semibold">音楽フェス</div>
+                        <div class="text-gray-500 text-sm">15,000円から</div>
+                        <button class="btn-view">すべて表示</button>
+                    </div>
+                </div>
+                <div class="deal-card">
+                    <img src="images/family.png" alt="ファミリー向け" class="deal-img">
+                    <div class="deal-info">
+                        <div class="font-semibold">ファミリー向け</div>
+                        <div class="text-gray-500 text-sm">30,000円から</div>
+                        <button class="btn-view">すべて表示</button>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section class="p-8">
+            <h2 class="text-2xl font-bold mb-4">島のグルメ情報</h2>
+            <div class="flex space-x-4 overflow-x-auto">
+                <!-- トップ島ぐるめカード -->
+                <div class="top-deal-card">
+                    <img src="images/直島うどん.png" alt="直島" class="top-deal-img">
+                    <div class="top-deal-info">
+                        <div class="font-semibold">直島</div>
+                        <div class="text-gray-500 text-sm">直島うどん</div>
+                    </div>
+                </div>
+                <div class="top-deal-card">
+                    <img src="images/石垣島 ステーキ.png" alt="石垣島" class="top-deal-img">
+                    <div class="top-deal-info">
+                        <div class="font-semibold">石垣島</div>
+                        <div class="text-gray-500 text-sm">石垣牛のステーキ</div>
+                    </div>
+                </div>
+                <div class="top-deal-card">
+                    <img src="images/志賀島ドッグ.png" alt="志賀島" class="top-deal-img">
+                    <div class="top-deal-info">
+                        <div class="font-semibold">志賀島</div>
+                        <div class="text-gray-500 text-sm">志賀島ドッグ</div>
+                    </div>
+                </div>
+                <div class="top-deal-card">
+                    <img src="images/べっこう寿司.png" alt="大島" class="top-deal-img">
+                    <div class="top-deal-info">
+                        <div class="font-semibold">大島</div>
+                        <div class="text-gray-500 text-sm">べっこう寿司</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="p-8">
+            <h2 class="text-2xl font-bold mb-4">人気の冒険</h2>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+                <!-- 人気ツアーカード -->
+                <div class="tour-card">
+                    <img src="images/iland_cycling2.png" alt="淡路島サイクリングツアー" class="tour-img">
+                    <div class="tour-info">
+                        <div class="text-gray-500 text-sm">5000円から</div>
+                        <div class="font-semibold">淡路島サイクリングツアー</div>
+                        <div class="text-gray-500 text-sm">淡路島</div>
+                    </div>
+                    <button class="btn-view">すべて表示</button>
+                </div>
+                <div class="tour-card">
+                    <img src="images/heri trip.jpg" alt="グランドキャニオンヘリコプターツアー" class="tour-img">
+                    <div class="tour-info">
+                        <div class="text-gray-500 text-sm">50,000円から</div>
+                        <div class="font-semibold">沖縄ヘリコプターツアー</div>
+                        <div class="text-gray-500 text-sm">沖縄本島</div>
+                    </div>
+                    <button class="btn-view">すべて表示</button>
+                </div>
+                <div class="tour-card">
+                    <img src="images/goto trip.png" alt="五島列島クルーズ" class="tour-img">
+                    <div class="tour-info">
+                        <div class="text-gray-500 text-sm">30,000円から</div>
+                        <div class="font-semibold">五島列島クルーズ</div>
+                        <div class="text-gray-500 text-sm">五島列島</div>
+                    </div>
+                    <button class="btn-view">すべて表示</button>
+                </div>
+            </div>
+        </section>
+        <section class="bg-gray-100 py-8">
+            <div class="text-center">
+                <h2 class="text-2xl font-bold mb-4">日本の島を探検しよう</h2>
+                <p class="text-gray-500 mb-4">島の情報・グルメスポット・クルーズチケットまで、素晴らしい冒険を</p>
+                <button class="bg-blue-500 text-white rounded-md px-4 py-2">すべての冒険を表示</button>
+            </div>
+        </section>
+
+    <!--海しるの島名v2呼出-->
+    <script src="shimap_api2.js"></script>
+
+    </main>
+</body>
+
+</html>

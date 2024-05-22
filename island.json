@@ -1,0 +1,198 @@
+{
+    "openapi": "3.0.1",
+    "info": {
+        "title": "島名",
+        "description": "主要な島の名称",
+        "version": "v1"
+    },
+    "servers": [
+        {
+            "url": "https://api.msil.go.jp/area-name/island/v1"
+        }
+    ],
+    "paths": {
+        "/export": {
+            "get": {
+                "tags": [
+                    "export"
+                ],
+                "summary": "画像出力",
+                "description": "主要な島の名称",
+                "operationId": "602b586c825e312bfb484145",
+                "parameters": [
+                    {
+                        "name": "bbox",
+                        "in": "query",
+                        "description": "出力範囲を設定するバウンディングボックスです。\n経緯度をカンマ区切りで4点入力します。\n例:\nbbox=135.0,35.0,136.0,40.0\n",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "size",
+                        "in": "query",
+                        "description": "出力する画像のサイズです。\n幅,高さをカンマ区切りで入力します。単位はpixelsです。\n例:\nsize=1920,1080\n",
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "transparent",
+                        "in": "query",
+                        "description": "背景色を透明にします。\ntrueなら背景は透過します。デフォルトはfalseです。\n例:\ntransparent=true\n",
+                        "schema": {
+                            "enum": [
+                                false,
+                                true
+                            ],
+                            "type": "boolean",
+                            "default": false
+                        }
+                    },
+                    {
+                        "name": "dpi",
+                        "in": "query",
+                        "description": "解像度を指定します。デフォルトは96です。\n例:\ndpi=200\n",
+                        "schema": {
+                            "enum": [
+                                96
+                            ],
+                            "type": "integer",
+                            "default": 96
+                        }
+                    },
+                    {
+                        "name": "time",
+                        "in": "query",
+                        "description": "\"時間検索条件です。\n1970年1月1日からの経過ミリ秒で期間の開始と終了を指定します。\n例:\ntime=1199145600000, 1230768000000",
+                        "schema": {
+                            "type": "integer"
+                        }
+                    },
+                    {
+                        "name": "mapScale",
+                        "in": "query",
+                        "description": "縮尺を設定します。\nbboxパラメータの中心点を基準に\n1:mapScaleの比率で画像を出力します。\n例:\nmapScale=5000000\n",
+                        "schema": {
+                            "type": "integer"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": ""
+                    }
+                }
+            }
+        },
+        "/query": {
+            "get": {
+                "tags": [
+                    "query"
+                ],
+                "summary": "JSON出力",
+                "description": "主要な島の名称",
+                "operationId": "602c64276eedfd835cf7218c",
+                "parameters": [
+                    {
+                        "name": "where",
+                        "in": "query",
+                        "description": "フィールドの内容で条件を絞ります。\nこのパラメータが指定されていない場合、全ての内容を取り出します。\n",
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "bbox",
+                        "in": "query",
+                        "description": "範囲検索条件のバウンディングボックス\n経緯度をカンマ区切りで4点入力します。\n例:\nbbox=135.0,35.0,136.0,40.0\n",
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "distance",
+                        "in": "query",
+                        "description": "距離検索条件です。\n基点の経緯度と距離をカンマ区切りで3点入力します。\n距離の単位はunitsで設定できます。デフォルトはメートルです。\n例:\ndistance=135.0,35.0,100.0",
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "units",
+                        "in": "query",
+                        "description": "距離の単位です。距離検索で指定する距離の単位を入力します。\n単位はメートルかキロメートルです。\n例:\nunits=kilometer\nunits=meter\n",
+                        "schema": {
+                            "enum": [
+                                "meter"
+                            ],
+                            "type": "string",
+                            "default": "meter"
+                        }
+                    },
+                    {
+                        "name": "time",
+                        "in": "query",
+                        "description": "時間検索条件です。\n1970年1月1日からの経過ミリ秒で期間の開始と終了を指定します。\n例:\ntime=1199145600000, 1230768000000\n",
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "returnGeometry",
+                        "in": "query",
+                        "description": "APIの応答内容にジオメトリ情報を含めるかを設定します。\nメタ情報のみ必要な場合はfalseに設定してください。\nデフォルトはtrueです。",
+                        "schema": {
+                            "enum": [
+                                true,
+                                false
+                            ],
+                            "type": "boolean",
+                            "default": true
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": ""
+                    }
+                }
+            }
+        },
+        "/": {
+            "get": {
+                "summary": "説明 ",
+                "description": "島名 説明 ",
+                "operationId": "604b3fa07f9fbf845baf6b33",
+                "responses": {
+                    "200": {
+                        "description": ""
+                    }
+                }
+            }
+        }
+    },
+    "components": {
+        "securitySchemes": {
+            "apiKeyHeader": {
+                "type": "apiKey",
+                "name": "Ocp-Apim-Subscription-Key",
+                "in": "header"
+            },
+            "apiKeyQuery": {
+                "type": "apiKey",
+                "name": "subscription-key",
+                "in": "query"
+            }
+        }
+    },
+    "security": [
+        {
+            "apiKeyHeader": []
+        },
+        {
+            "apiKeyQuery": []
+        }
+    ]
+}

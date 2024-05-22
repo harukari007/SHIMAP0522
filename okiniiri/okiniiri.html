@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> お気に入りリスト</title>
+    <link rel="stylesheet" href="css/okiniiri.css">
+</head>
+
+<body class="font-roboto">
+    <header class="flex justify-between items-center flex-direction p-4 bg-white shadow-md">
+        <div class="shimap_logo">
+            <div class="font-bold text-xl">SHIMAP</div>
+            <img src="images/shimap_logo2.jpg" width="110" height="auto" alt="しまっぷ" class="logomain">
+        </div>
+        <div class="flex items-center space-x-4">
+            <i class="fas fa-user text-gray-500"></i>
+            <a href="index.html" class="text-gray-500">ホーム</a>
+        </div>
+    </header>
+
+    <main class="p-8">
+        <h2 class="text-2xl font-bold mb-4">お気に入りリスト</h2>
+
+        <div id="favorite-islands-list" class="grid grid-cols-1 md:grid-cols-3 gap-4">
+        </div>
+
+        <div class="text-center mt-8">
+            <a href="index.html" class="bg-blue-500 text-white rounded-md px-4 py-2">ホームへ戻る</a>
+        </div>
+    </main>
+
+    <script src="okiniiri/okiniiri.js"></script>
+</body>
+
+</html>

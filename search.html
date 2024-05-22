@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>しまっぷ</title>
+    <link rel="stylesheet" href="css/style.css"> <!-- 外部CSSファイルをリンク -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script> <!-- jQueryを読み込む -->
+    <script src="https://kit.fontawesome.com/17c882a708.js" crossorigin="anonymous"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>    <!-- Map API -->
+</head>
+
+<body>
+    <div class="ContentHeader">
+        <div class="ContentHeader_Innner">
+            <script src="header.js"></script>
+            <script>header('../');</script>
+        </div>
+        <!-- 「海しる」へのリンク -->
+        <!-- <h2>日本の島の名前を検索してみよう！</h2>
+        <p>「<a href="https://portal.msil.go.jp/" target="_blank">海しる</a>」から参照</p> -->
+    </div>
+
+    <!-- searchエリア -->
+    <div id="searchArea">
+        <input type="text" id="searchAreaBar" placeholder="島を検索">
+        <button id="searchAreaButton"><i class="fa-solid fa-magnifying-glass"></i></button>
+    </div>
+
+
+    <!-- Bing map 情報を出力 -->
+    <div id="myMap" style='position:relative;width:100%;height:300px;'></div>
+
+
+    <!-- [ Pushpin Object ] https://msdn.microsoft.com/en-us/library/mt712673.aspx -->
+    <script
+        src='https://www.bing.com/api/maps/mapcontrol?callback=GetMap&key=AnhEqJsJ0qoGH55Af1BYCJxomgoCFbSi7YyAPNDiFd68HHQwR617pNUcT8Vgi-zA'
+        async defer></script>
+    <script>
+        function GetMap() {
+            let map = new Microsoft.Maps.Map('#myMap', {
+                center: new Microsoft.Maps.Location(134.8069990189042, 34.3089096098895), //Location center position
+            });
+
+            //Get MAP Infomation MAP中心座標を取得
+            let center = map.getCenter();
+            console.log(center);
+
+            //Create custom Pushpin PushPinの設定
+            // let pin = new Microsoft.Maps.Pushpin(center, { latitude: 33.586941366841984, longitude: 130.39446900002085 }, {
+            //     color: 'red',            //Color
+            //     draggable: true,          //MouseDraggable/true=ドラックできる false=ドラックできない。ずらされると困る為
+            //     enableClickedStyle: true, //Click クリックの時に何かアニメーション追加 false=なし
+            //     enableHoverStyle: true,   //MouseOver 
+            //     visible: true             //show/hide 非表示 どこかの場所をクリックしたら表示することも可能
+            // });
+
+            //Create custom Pushpin アイコンを使って表示する
+            let pin = new Microsoft.Maps.Pushpin(center, {
+                icon: 'img/poi_custom.png',  //base64,SVG,canvas,iframe 画像のパス
+                anchor: new Microsoft.Maps.Point(12, 39)  //position move 次のページ
+            });
+            //Point!!: Add mouse events to the pushpin.イベントを追加する
+            Microsoft.Maps.Events.addHandler(pushpin, 'click', function () {
+                alert("click");
+                highlight('pushpinClick');
+            });
+
+
+            //Add the pushpin to the map PushPinを追加
+            map.entities.push(pin);
+
+        }
+    </script>
+
+    <!-- <div id="mapFilter">
+        <select name="" id="genreFilter">
+            <option value="">都道府県</option>
+        </select>
+    </div>  -->
+    <!-- <div id="images"></div> 画像出力 -->
+    <div id="island-info"></div> <!-- 主要な島の名称 -->
+    <div id="island-ditail"></div><!-- 海しるの説明を表示 -->
+
+    <!-- フッターエリア -->
+
+
+    <script>
+
+    </script>
+
+    <!--海しるの島名v2呼出-->
+    <script src="shimap_api2.js"></script>
+    <!-- 海知る画像出力呼出 -->
+    <!-- <script src="api_gazou/map.js"></script> -->
+
+</body>
+
+</html>

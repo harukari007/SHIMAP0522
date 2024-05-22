@@ -1,0 +1,153 @@
+.header {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    display: flex;
+    justify-content: space-around;
+    background: white;
+    padding: 25px 0;
+    box-shadow: 0 -2px 6px rgba(0, 0, 0, 0.3);
+}
+
+
+
+
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f0f8ff;
+}
+
+h1,
+h2,
+p {
+    text-align: center;
+    padding: 0;
+    margin: 0;
+    font-size: 50%;
+    color: black;
+}
+
+.mouse {
+    font-size: 50%;
+    background: white;
+}
+
+
+#island-info {
+    max-width: 600px;
+    max-height: 300px;
+    margin: 0 auto;
+}
+
+.island {
+    margin-bottom: 20px;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+.island h2 {
+    margin-top: 0;
+}
+
+.island p {
+    margin-bottom: 0;
+}
+
+#shima {
+    text-align: center;
+
+}
+
+/* マップ画像のスタイル */
+#images {
+    height: 450px;
+    margin: auto;
+    /* ビューポートの高さに合わせる */
+    width: 100%;
+    /* 幅を100%に設定 */
+}
+
+/* 検索バーのスタイル */
+#searchArea {
+    position: absolute;
+    top: 200px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 80%;
+    max-width: 500px;
+    z-index: 5;
+    background: white;
+    border-radius: 25px;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.3);
+    padding: 10px;
+    display: flex;
+    align-items: center;
+}
+
+#searchArea input {
+    flex: 1;
+    border: none;
+    outline: none;
+    padding: 10px;
+    border-radius: 25px;
+    font-size: 16px;
+}
+
+#searchArea button {
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 10px;
+    font-size: 16px;
+}
+
+#mapFilter {
+    position: absolute;
+    top: 70px;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    gap: 10px;
+    z-index: 5;
+}
+
+#mapFilter select {
+    background: white;
+    border: 1px solid #ccc;
+    width: 150px;
+    border-radius: 25px;
+    margin: 25px 10px;
+    padding: 10px 20px;
+    font-size: 16px;
+    cursor: pointer;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.3);
+}
+
+/* フッターのスタイル */
+.footer {
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    display: flex;
+    justify-content: space-around;
+    background: white;
+    padding: 25px 0;
+    box-shadow: 0 -2px 6px rgba(0, 0, 0, 0.3);
+}
+
+.footer button {
+    background: none;
+    border: none;
+    cursor: pointer;
+    font-size: 16px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.footer button i {
+    margin-bottom: 5px;
+}
